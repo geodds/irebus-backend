@@ -1,15 +1,17 @@
 package br.com.ifba.irebus.usuario.service;
 
 import br.com.ifba.irebus.usuario.entity.Usuario;
+import org.springframework.data.domain.Page;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 public interface UsuarioIService {
 
-    List<Usuario> findAll();
-    Usuario findById(Long id);
-    Usuario save(Usuario usuario);
-    void delete(Usuario usuario);
-    Usuario update(Long id, Usuario usuario);
+    public abstract Page<Usuario> findAll(Pageable pageable);
+    public abstract Usuario findById(Long id);
+    public abstract Usuario save(Usuario usuario);
+    public abstract void delete(Usuario usuario);
+    public abstract Usuario update(Long id, Usuario usuario);
 
 }

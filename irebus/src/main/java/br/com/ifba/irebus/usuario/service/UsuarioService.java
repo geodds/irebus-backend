@@ -18,7 +18,12 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UsuarioService {
 
-    private final UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
+
+   /* public UsuarioService getUsuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+        return null;
+    }*/
 
     public Page<Usuario> findAll(Pageable pageable) {
         return usuarioRepository.findAll(pageable);

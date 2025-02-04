@@ -11,20 +11,22 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 
 
-import java.awt.*;
-
-@Controller
+@RestController
 @RequestMapping(path = "/usuarios") //mapeia as requisicoes de usuarios
 @RequiredArgsConstructor
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
     private final ObjectMapperUtil objectMapperUtil;
+
+   /* public UsuarioController(UsuarioService usuarioService, ObjectMapperUtil objectMapperUtil) {
+        this.usuarioService = usuarioService;
+        this.objectMapperUtil = objectMapperUtil;
+    }*/
 
     //endpoint para retornar uma lista de usuaurios
     @GetMapping(path = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -33,7 +35,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(this.usuarioService.findAll(pageable) //chama o metodo findall
                 .map(c -> objectMapperUtil.map(c, UsuarioGetResponseDto.class))); //mapeia para o dto
-    }
+    }                //funcao lambda, transforma obejto usuario do page em UsuarioGetResponse dto
 
     //endpoint para buscar usuarios pelo nome
     @GetMapping(path = "/findByName", produces = MediaType.APPLICATION_JSON_VALUE)
