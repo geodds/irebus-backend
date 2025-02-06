@@ -29,13 +29,13 @@ public class UsuarioService {
         return usuarioRepository.findAll(pageable);
     }
 
-    public List<Usuario> findByName() {
-        return usuarioRepository.findByName();
-    }
+    /*public List<Usuario> findByName(String nome) {
+        return usuarioRepository.findByName(nome);
+    }*/
 
-    public List<Usuario> findByEmail() {
-        return usuarioRepository.findByEmail();
-    }
+    /*public List<Usuario> findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }*/
 
     public Usuario findById(Long id) {
         return usuarioRepository.findById(id)

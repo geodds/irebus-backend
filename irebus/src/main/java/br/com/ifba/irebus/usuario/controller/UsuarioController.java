@@ -23,11 +23,6 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
     private final ObjectMapperUtil objectMapperUtil;
 
-   /* public UsuarioController(UsuarioService usuarioService, ObjectMapperUtil objectMapperUtil) {
-        this.usuarioService = usuarioService;
-        this.objectMapperUtil = objectMapperUtil;
-    }*/
-
     //endpoint para retornar uma lista de usuaurios
     @GetMapping(path = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
     //retornar uma resposta http e a lista de usuarios mapeada para dto
@@ -38,22 +33,22 @@ public class UsuarioController {
     }                //funcao lambda, transforma obejto usuario do page em UsuarioGetResponse dto
 
     //endpoint para buscar usuarios pelo nome
-    @GetMapping(path = "/findByName", produces = MediaType.APPLICATION_JSON_VALUE)
+   /* @GetMapping(path = "/findByName", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?>findByName(){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(objectMapperUtil.mapAll(
                         this.usuarioService.findByName(),
                         UsuarioGetResponseDto.class));
-    }
+    }*/
 
     //endpoint para buscar usuarios pelo email
-    @GetMapping(path = "/findByEmail", produces = MediaType.APPLICATION_JSON_VALUE)
+   /* @GetMapping(path = "/findByEmail", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?>findByEmail(){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(objectMapperUtil.mapAll(
                         this.usuarioService.findByEmail(),
                         UsuarioGetResponseDto.class));
-    }
+    }*/
 
     //endpoint para buscar usuarios pelo id
     @PostMapping("/usuarios{id}")

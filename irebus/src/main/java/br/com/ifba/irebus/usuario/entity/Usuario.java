@@ -4,10 +4,7 @@ import br.com.ifba.irebus.infrastructure.entity.PersistenceEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -17,6 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
+@Builder //gera padrao de construcao de objetos
 public class Usuario extends PersistenceEntity implements Serializable {
 
     @Column(name = "nome",nullable = false)
@@ -26,7 +24,7 @@ public class Usuario extends PersistenceEntity implements Serializable {
     private String email;
 
     @Column(name = "login",nullable = false, unique = true)
-    private String user_name;
+    private String login;
 
     @Column(name = "senha",nullable = false)
     private String password;
