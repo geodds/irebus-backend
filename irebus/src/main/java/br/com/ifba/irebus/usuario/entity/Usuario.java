@@ -1,9 +1,7 @@
 package br.com.ifba.irebus.usuario.entity;
 
 import br.com.ifba.irebus.infrastructure.entity.PersistenceEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -16,6 +14,10 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Builder //gera padrao de construcao de objetos
 public class Usuario extends PersistenceEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "nome",nullable = false)
     private String name;

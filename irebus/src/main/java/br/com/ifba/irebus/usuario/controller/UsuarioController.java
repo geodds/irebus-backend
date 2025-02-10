@@ -14,10 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 
+import static com.mysql.cj.conf.PropertyKey.logger;
+
 
 @RestController
-@RequestMapping(path = "/usuarios") //mapeia as requisicoes de usuarios
+@RequestMapping("/usuarios") //mapeia as requisicoes de usuarios
 @RequiredArgsConstructor
+@CrossOrigin //permite requisicao de origem desconhecida
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
@@ -51,7 +54,7 @@ public class UsuarioController {
     }*/
 
     //endpoint para buscar usuarios pelo id
-    @PostMapping("/usuarios{id}")
+    @PostMapping("/{id}")
     public ResponseEntity<UsuarioGetResponseDto> findById(@PathVariable("id") Long id){
         Usuario usuario = usuarioService.findById(id);
         UsuarioGetResponseDto responseDto = objectMapperUtil.map(usuario, UsuarioGetResponseDto.class);
